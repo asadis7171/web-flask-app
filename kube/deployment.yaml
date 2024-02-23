@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flask-webapp 
+  template:
+    metadata:
+      labels:
+        app: flask-webapp 
+    spec:
+      containers:
+      - name: myapp
+        image: asadis7171/flask_webapp_asad:v2
+        ports:
+        - containerPort: 8080
